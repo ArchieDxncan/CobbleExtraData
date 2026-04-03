@@ -131,6 +131,7 @@ public class PokemonInfoScreen extends Screen {
 
         drawTexture(guiGraphics, originMark, originMarkX, originMarkY, originMarkSize, originMarkSize);
 
+        /* COMMENTED OUT: Marks/Ribbons display functionality
         // Fetch the list of marks from persistent data
         CompoundTag data = pokemon.getPersistentData();
         if (data.contains("Ribbons", 11)) {
@@ -222,6 +223,7 @@ public class PokemonInfoScreen extends Screen {
                 }
             }
         }
+        */
     }
 
     // Helper method to capitalize each word

@@ -21,6 +21,7 @@ repositories {
     maven("https://hub.spigotmc.org/nexus/content/groups/public/")
     maven("https://thedarkcolour.github.io/KotlinForForge/")
     maven("https://maven.neoforged.net")
+    maven("https://api.modrinth.com/maven") // Cobblemon repository
 }
 
 val shadowBundle = configurations.create("shadowBundle") {

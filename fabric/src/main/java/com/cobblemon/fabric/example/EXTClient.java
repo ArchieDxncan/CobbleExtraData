@@ -1,6 +1,7 @@
 package com.cobblemon.fabric.example;
 
 import com.cobblemon.mod.common.client.CobblemonClient;
+import com.cobblemon.mod.common.client.storage.ClientStorageManager;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -32,8 +33,13 @@ public class EXTClient implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (periodKeyBinding.consumeClick()) { // Check if the keybinding is triggered
                 try {
-                    Pokemon activePokemon = CobblemonClient.INSTANCE.getStorage().getMyParty()
-                            .get(CobblemonClient.INSTANCE.getStorage().getSelectedSlot());
+                    ClientStorageManager storage = CobblemonClient.INSTANCE.getStorage();
+                    // Updated for Cobblemon 1.7: Use new API
+                    // Kotlin properties generate getter methods at runtime (getParty(), getSelectedSlot())
+                    // Note: Build the project first - linter errors will resolve after Kotlin stubs are generated
+                    com.cobblemon.mod.common.client.storage.ClientParty party = storage.getParty();
+                    int selectedSlot = storage.getSelectedSlot();
+                    Pokemon activePokemon = party != null ? party.get(selectedSlot) : null;
 
                     if (activePokemon != null) {
                         // Open the custom GUI screen with the Pokémon data

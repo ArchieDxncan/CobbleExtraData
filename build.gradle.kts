@@ -1,9 +1,10 @@
+
 plugins {
     id("java")
     id("java-library")
-    kotlin("jvm") version("1.9.23")
+    kotlin("jvm") version("2.2.20")
 
-    id("dev.architectury.loom") version("1.7-SNAPSHOT") apply false
+    id("dev.architectury.loom") version("1.11-SNAPSHOT") apply false
     id("architectury-plugin") version("3.4-SNAPSHOT") apply false
 }
 
@@ -20,7 +21,9 @@ allprojects {
         maven("https://maven.impactdev.net/repository/development/")
         maven("https://maven.neoforged.net/releases")
         maven("https://thedarkcolour.github.io/KotlinForForge/")
+        maven("https://api.modrinth.com/maven") // Cobblemon repository
     }
+
 
     tasks.getByName<Test>("test") {
         useJUnitPlatform()

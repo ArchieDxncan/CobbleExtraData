@@ -59,6 +59,7 @@ public class OriginGameMapper {
         // Gen 9
         ORIGIN_GAME_TO_REGION.put("sl", "Paldea");
         ORIGIN_GAME_TO_REGION.put("vl", "Paldea");
+        ORIGIN_GAME_TO_REGION.put("za", "Kalos");
 
         // Misc
         ORIGIN_GAME_TO_REGION.put("cobblemon", "Cobblemon");

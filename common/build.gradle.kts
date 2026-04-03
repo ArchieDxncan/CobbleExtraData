@@ -11,6 +11,10 @@ loom {
     silentMojangMappingsLicense()
 }
 
+repositories {
+    maven("https://api.modrinth.com/maven") // Cobblemon repository
+}
+
 dependencies {
     minecraft("com.mojang:minecraft:${property("minecraft_version")}")
     mappings(loom.officialMojangMappings())
